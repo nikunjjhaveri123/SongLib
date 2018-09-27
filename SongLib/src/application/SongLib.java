@@ -1,25 +1,48 @@
 package application;
-	
-import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import java.io.IOException;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import application.Controller;
 
 public class SongLib extends Application {
-	@Override
-	public void start(Stage primaryStage) {
+
+	Stage mainStage;
+	
+	public void start(Stage stage) {
+		mainStage = stage;
+		mainStage.setTitle("Song library");  // title of window
+		
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch(Exception e) {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("SongView.fxml")); // dir of your .fxml file
+			AnchorPane pane = (AnchorPane)loader.load();
+			
+			Controller controller = loader.getController();
+			controller.setMainStage(mainStage);
+			
+			Scene scene = new Scene(pane, 600, 700);
+			mainStage.setScene(scene);
+			mainStage.show();
+			
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
+
+	/**
+	 * The main() method is ignored in correctly deployed JavaFX application.
+	 * main() serves only as fallback in case the application can not be
+	 * launched through deployment artifacts, e.g., in IDEs with limited FX
+	 * support. NetBeans ignores main(). it shouldn't even be called 
+	 *
+	 * @param args the command line arguments
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}

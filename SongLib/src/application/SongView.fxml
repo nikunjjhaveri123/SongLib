@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
@@ -9,8 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1">
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <BorderPane layoutX="-31.0" layoutY="-13.0" prefHeight="487.0" prefWidth="652.0" />
       <GridPane prefHeight="487.0" prefWidth="621.0">
@@ -27,14 +27,16 @@
          <children>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="299.0" prefWidth="208.0">
                      <children>
-                        <ListView prefHeight="200.0" prefWidth="200.0" />
+                        <ListView prefHeight="300.0" prefWidth="207.0" />
                      </children>
                   </AnchorPane>
               </content>
             </ScrollPane>
             <TextArea prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id = "EDIT" mnemonicParsing="false" text="ADD" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" text="EDIT" />
          </children>
       </GridPane>
    </children>
