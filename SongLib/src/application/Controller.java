@@ -13,7 +13,9 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 
@@ -21,7 +23,9 @@ public class Controller {
 	
 	Stage mainStage;
 	
-	final static String fileName = "songlist.txt";
+	ObservableList<Song> listOfSongs = FXCollections.observableArrayList();
+	
+	final static String fileName = "application/songlist.txt";
 	
 	public void setMainStage(Stage stage) {
 		mainStage = stage;
@@ -30,7 +34,6 @@ public class Controller {
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview
 	public ObservableList<Song> fileRead(String fileName)
 	{
-		ObservableList<Song> listOfSongs = FXCollections.observableArrayList();
 		try {
 			FileReader fr = new FileReader(fileName);
 			BufferedReader br = new BufferedReader(fr);
@@ -49,14 +52,28 @@ public class Controller {
 				album = str.nextToken();
 				year = str.nextToken();
 				listOfSongs.add(new Song(name, artist, album, year));
-				
 			}
+			fr.close();
+			br.close();
 	
 		}
 		catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		return listOfSongs;
+	}
+	
+	public void filewrite() throws IOException
+	{
+		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,true));
+		for (Song s : listOfSongs)
+		{
+			writer.write(s.name + "/" + s.artist + "/" + s.album + "/" + s.year + "/");
+			writer.newLine();
+		}
+		writer.close();
+		
 	}
 }
 
