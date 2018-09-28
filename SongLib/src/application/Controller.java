@@ -162,7 +162,15 @@ class Song {
 		return true;
 	}
 	public String toString() {
-		return name + " by " + artist;
+		String x = name + " by " + artist;
+		if(!(this.album.equals(""))) {
+			x = x + " from album: " + album;
+		}
+		if(!(this.year.equals(""))) {
+			x = x + " created in year " + year;
+		}
+		return x;
+		
 	}
 
 }
