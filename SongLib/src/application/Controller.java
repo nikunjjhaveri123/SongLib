@@ -40,7 +40,7 @@ public class Controller {
 	@FXML
 	private Label details;
 	
-	final static String fileName = "C:\\Users\\nikun\\git\\repository\\SongLib\\src\\application\\SongList";
+	final static String fileName = "C:\\Users\\lzhou\\git\\SongLib\\SongLib\\src\\application\\SongList.txt";
 	
 	public void setMainStage(Stage stage) {
 		mainStage = stage;
