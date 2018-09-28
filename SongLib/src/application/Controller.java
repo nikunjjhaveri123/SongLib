@@ -154,12 +154,9 @@ class Song {
 	{
 		for(Song s: listOfSongs)
 		{
-			if(one.name.equals(s.name))
+			if(one.name.equals(s.name) && one.artist.equals(s.artist))
 			{
-				if (one.artist.equals(s.artist))
-				{
-					return false;
-				}
+				return false;
 			}
 		}
 		return true;
