@@ -46,6 +46,7 @@ public class Controller {
 		mainStage = stage;
 	}
 	
+	// starts the program by reading the file and setting up the listview to show the list of Songs
 	public void start(Stage mainStage) {
 		listOfSongs = fileRead(fileName);
 		for(Song s: listOfSongs)
@@ -106,11 +107,14 @@ public class Controller {
 		
 	}
 	
+	//This method removes the selected song from the observablelist listOfSongs
 	public void deleteSong(ActionEvent Event)
 	{
 		listOfSongs.remove(listview.getSelectionModel().getSelectedItem());
 		listview.setItems(listOfSongs);
 	}
+	
+	
 	public void addSong(ActionEvent Event)
 	{
 		
