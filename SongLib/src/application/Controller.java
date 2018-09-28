@@ -90,6 +90,20 @@ public class Controller {
 		writer.close();
 		
 	}
+	
+	public void deleteSong(ActionEvent Event)
+	{
+		listOfSongs.remove(listview.getSelectionModel().getSelectedItem());
+		listview.setItems(listOfSongs);
+	}
+	public void addSong(ActionEvent Event)
+	{
+	
+	}
+	public void editSong(ActionEvent Event)
+	{
+		
+	}
 }
 
 class Song {
