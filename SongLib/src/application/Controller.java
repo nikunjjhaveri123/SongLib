@@ -8,8 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import java.io.BufferedReader;
@@ -22,6 +21,8 @@ import java.io.IOException;
 public class Controller {
 	
 	Stage mainStage;
+	
+	ListView<Song> listview;
 	
 	ObservableList<Song> listOfSongs = FXCollections.observableArrayList();
 	
@@ -101,9 +102,20 @@ class Song {
 		
 	}
 	*/
-	public boolean equals(Song one)
+	// need to add something to check for when using edit feature because year and album might be edited but name and artist could remain the same.
+	public boolean equals(Song one, ObservableList<Song> listOfSongs)
 	{
-		return false;
+		for(Song s: listOfSongs)
+		{
+			if(one.name.equals(s.name))
+			{
+				if (one.artist.equals(s.artist))
+				{
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 	public String toString() {
 		return name + " by " + artist;
