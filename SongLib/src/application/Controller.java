@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -37,7 +38,7 @@ public class Controller {
 	private Button Delete;
 	
 	@FXML
-	private TextField details;
+	private Label details;
 	
 	final static String fileName = "C:\\Users\\nikun\\git\\repository\\SongLib\\src\\application\\SongList";
 	
@@ -53,8 +54,10 @@ public class Controller {
 		}
 		listview.setItems(listOfSongs); 
 		listview.getSelectionModel().select(0);
-		listview.getSelectionModel().getSelectedItem();
-		details.
+		details.setText(listview.getSelectionModel().getSelectedItem().toString());
+		
+		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().toString()));
+		
 	}
 	
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview
