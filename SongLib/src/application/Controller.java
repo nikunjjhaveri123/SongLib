@@ -11,6 +11,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -23,15 +24,22 @@ public class Controller {
 	
 	Stage mainStage;
 	
+	@FXML
 	ListView<Song> listview;
 	
 	ObservableList<Song> listOfSongs = FXCollections.observableArrayList();
 	
+	@FXML
 	private Button Edit;
+	@FXML
 	private Button Add;
+	@FXML
 	private Button Delete;
 	
-	final static String fileName = "application\\SongList";
+	@FXML
+	private TextField details;
+	
+	final static String fileName = "C:\\Users\\nikun\\git\\repository\\SongLib\\src\\application\\SongList";
 	
 	public void setMainStage(Stage stage) {
 		mainStage = stage;
@@ -43,6 +51,10 @@ public class Controller {
 		{
 			System.out.println(s);
 		}
+		listview.setItems(listOfSongs); 
+		listview.getSelectionModel().select(0);
+		listview.getSelectionModel().getSelectedItem();
+		details.
 	}
 	
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview
