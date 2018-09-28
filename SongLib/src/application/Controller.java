@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
@@ -26,10 +27,22 @@ public class Controller {
 	
 	ObservableList<Song> listOfSongs = FXCollections.observableArrayList();
 	
-	final static String fileName = "application/songlist.txt";
+	private Button Edit;
+	private Button Add;
+	private Button Delete;
+	
+	final static String fileName = "application\\SongList";
 	
 	public void setMainStage(Stage stage) {
 		mainStage = stage;
+	}
+	
+	public void start(Stage mainStage) {
+		listOfSongs = fileRead(fileName);
+		for(Song s: listOfSongs)
+		{
+			System.out.println(s);
+		}
 	}
 	
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview
@@ -40,14 +53,15 @@ public class Controller {
 			BufferedReader br = new BufferedReader(fr);
 	
 			String line;
-			while(br.readLine()!=null)
+			String delim = "/";
+			while((line = br.readLine())!= null)
 			{
-				line = br.readLine();
+				System.out.println(line);
 				String name = "";
 				String artist = "";
 				String year = "";
 				String album = "";
-				StringTokenizer str = new StringTokenizer(line, "/");
+				StringTokenizer str = new StringTokenizer(line, delim, false);
 				name = str.nextToken();
 				artist = str.nextToken();
 				album = str.nextToken();

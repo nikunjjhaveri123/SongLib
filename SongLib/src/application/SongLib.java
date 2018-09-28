@@ -18,13 +18,14 @@ public class SongLib extends Application {
 		
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("SongView.fxml")); // dir of your .fxml file
+			loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
 			AnchorPane pane = (AnchorPane)loader.load();
 			
 			Controller controller = loader.getController();
 			controller.setMainStage(mainStage);
-			
+			controller.start(mainStage);
 			Scene scene = new Scene(pane, 600, 700);
+			
 			mainStage.setScene(scene);
 			mainStage.show();
 			

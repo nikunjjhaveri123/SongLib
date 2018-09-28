@@ -9,7 +9,7 @@
 <?import javafx.scene.text.TextFlow?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <ScrollPane layoutX="197.0" layoutY="39.0" prefHeight="195.0" prefWidth="358.0" />
       <AnchorPane layoutY="271.0" prefHeight="0.0" prefWidth="600.0">
@@ -27,9 +27,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" text="Edit" />
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" text="Add" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" text="Delete" GridPane.rowIndex="2" />
+            <Button fx:id = "Edit" mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" text="Edit" />
+            <Button fx:id = "Add" mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" text="Add" GridPane.rowIndex="1" />
+            <Button fx:id = "Delete" mnemonicParsing="false" prefHeight="38.0" prefWidth="107.0" text="Delete" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>
