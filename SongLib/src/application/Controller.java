@@ -187,6 +187,31 @@ class Song {
 		}
 		return false;
 	}
+	
+	public void insertSong(ObservableList<Song> list)
+	{
+		for(int i = 0;i < list.size(); i++)
+		{
+			int comp = this.name.compareTo(list.get(i).name);
+			{
+				if(comp < 0)
+				{
+					list.add(i, this);
+				}
+				else if(comp == 0)
+				{
+					int artcomp = this.artist.compareTo(list.get(i).artist);
+					{
+						if(artcomp < 0)
+						{
+							list.add(i, this);
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	public String toString() {
 		String x = name + " by " + artist;
 		if(!(this.album.equals("&"))) {

@@ -51,7 +51,7 @@ public class AddController {
 		window.show();
 	}
 	
-	public void checkSong(ActionEvent Event) throws IOException
+	public boolean checkSong() throws IOException
 	{
 		String name;
 		String artist;
@@ -60,7 +60,7 @@ public class AddController {
 		if(SongName.getText()==null)
 		{
 			error.setText("Please Enter a Song Name and Artist");
-			return;
+			return false;
 		}
 		else {
 			name = SongName.getText();
@@ -69,7 +69,7 @@ public class AddController {
 		if(SongArtist.getText()==null)
 		{
 			error.setText("Please Enter a Song Name and Artist");
-			return;
+			return false;
 		}
 		else {
 			artist = SongArtist.getText();
@@ -96,10 +96,32 @@ public class AddController {
 		Song add = new Song(name, artist, album, year);
 		if(add.equals(add, listOfSongs))
 		{
-			
+			error.setText("Error: A song by this artist already exists: Please enter a new song with a different name or artist.");
+			return false;
 		}
+		add.insertSong(listOfSongs);
+		return true;
 		
-		
+	}
+	
+	public void confirm(ActionEvent Event) throws IOException
+	{
+		if (checkSong())
+		{
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
+			Parent SongView = loader.load();
+			Scene SongViewscene = new Scene(SongView);
+			Controller controller = loader.getController();
+			Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
+			controller.restart(window, listOfSongs);
+			window.setScene(SongViewscene);
+			window.show();
+		}
+		else
+		{
+			return;
+		}
 	}
 	
 	public void initSongList(ObservableList<Song> songs)
