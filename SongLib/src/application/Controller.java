@@ -182,10 +182,10 @@ class Song {
 		{
 			if(one.name.equals(s.name) && one.artist.equals(s.artist))
 			{
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	public String toString() {
 		String x = name + " by " + artist;

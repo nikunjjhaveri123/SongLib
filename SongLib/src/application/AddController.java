@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class AddController {
@@ -18,7 +19,22 @@ public class AddController {
 	private Button cancel;
 	
 	@FXML
-	private Button Confirm; 
+	private Button confirm; 
+	
+	@FXML
+	private TextField SongName;
+	
+	@FXML
+	private TextField SongArtist;
+	
+	@FXML
+	private TextField SongAlbum;
+	
+	@FXML
+	private TextField SongYear;
+	
+	@FXML
+	private TextField error;
 	
 	ObservableList<Song> listOfSongs;
 	
@@ -33,6 +49,56 @@ public class AddController {
 		controller.restart(window, listOfSongs);
 		window.setScene(SongViewscene);
 		window.show();
+	}
+	
+	public void checkSong(ActionEvent Event) throws IOException
+	{
+		String name;
+		String artist;
+		String album;
+		String year;
+		if(SongName.getText()==null)
+		{
+			error.setText("Please Enter a Song Name and Artist");
+			return;
+		}
+		else {
+			name = SongName.getText();
+		}
+		
+		if(SongArtist.getText()==null)
+		{
+			error.setText("Please Enter a Song Name and Artist");
+			return;
+		}
+		else {
+			artist = SongArtist.getText();
+		}
+		
+		if (SongAlbum.getText()==null)
+		{
+			album = " ";
+		}
+		else 
+		{
+			album = SongAlbum.getText();
+		}
+		
+		if (SongYear.getText()==null)
+		{
+			year = " ";
+		}
+		else 
+		{
+			year = SongAlbum.getText();
+		}
+		
+		Song add = new Song(name, artist, album, year);
+		if(add.equals(add, listOfSongs))
+		{
+			
+		}
+		
 		
 	}
 	
@@ -40,6 +106,8 @@ public class AddController {
 	{
 		listOfSongs = songs;
 	}
+	
+	
 	
 
 }
