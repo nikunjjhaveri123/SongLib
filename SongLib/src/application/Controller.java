@@ -65,6 +65,18 @@ public class Controller {
 		
 	}
 	
+	public void restart(Stage mainStage, ObservableList<Song> songs)
+	{
+		listOfSongs = songs;
+		listview.setItems(listOfSongs); 
+		listview.getSelectionModel().select(0);
+		details.setText(listview.getSelectionModel().getSelectedItem().toString());
+		
+		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().toString()));
+		
+		
+	}
+	
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview
 	public ObservableList<Song> fileRead(String fileName)
 	{
@@ -121,9 +133,13 @@ public class Controller {
 	
 	public void addSong(ActionEvent Event) throws IOException
 	{
-		Parent AddView = FXMLLoader.load(getClass().getResource("AddView.fxml"));
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("AddView.fxml")); // dir of your .fxml file
+		Parent AddView = loader.load();
 		Scene AddViewscene = new Scene(AddView);
+		AddController controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
+		controller.initSongList(listOfSongs);
 		window.setScene(AddViewscene);
 		window.show();
 		

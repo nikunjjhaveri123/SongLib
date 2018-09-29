@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,15 +20,25 @@ public class AddController {
 	@FXML
 	private Button Confirm;
 	
+	ObservableList<Song> listOfSongs;
+	
 	public void cancel(ActionEvent Event) throws IOException
 	{
-		Parent SongView = FXMLLoader.load(getClass().getResource("SongView2.fxml"));
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
+		Parent SongView = loader.load();
 		Scene SongViewscene = new Scene(SongView);
+		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
+		controller.restart(window, listOfSongs);
 		window.setScene(SongViewscene);
 		window.show();
 		
-		
+	}
+	
+	public void initSongList(ObservableList<Song> songs)
+	{
+		listOfSongs = songs;
 	}
 	
 
