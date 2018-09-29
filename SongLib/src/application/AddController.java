@@ -91,7 +91,7 @@ public class AddController {
 		}
 		else 
 		{
-			year = SongAlbum.getText();
+			year = SongYear.getText();
 		}
 		
 		Song add = new Song(name, artist, album, year);

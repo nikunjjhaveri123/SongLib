@@ -192,7 +192,7 @@ class Song {
 	{
 		for(int i = 0;i < list.size(); i++)
 		{
-			int comp = this.name.compareTo(list.get(i).name);
+			int comp = (this.name.toLowerCase()).compareTo(list.get(i).name.toLowerCase());
 			{
 				if(comp < 0)
 				{
@@ -201,7 +201,7 @@ class Song {
 				}
 				else if(comp == 0)
 				{
-					int artcomp = this.artist.compareTo(list.get(i).artist);
+					int artcomp = this.artist.toLowerCase().compareTo(list.get(i).artist.toLowerCase());
 					{
 						if(artcomp < 0)
 						{
