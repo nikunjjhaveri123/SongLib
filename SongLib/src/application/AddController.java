@@ -58,22 +58,23 @@ public class AddController {
 		String artist;
 		String album;
 		String year;
-		if(SongName.getText()==null)
-		{
-			error.setText("Please Enter a Song Name and Artist");
-			return false;
-		}
-		else {
+		if(SongName.getText()!=null)
+		{	
 			name = SongName.getText();
 		}
-		
-		if(SongArtist.getText()==null)
-		{
+		else {
 			error.setText("Please Enter a Song Name and Artist");
 			return false;
 		}
-		else {
+		
+		if(SongArtist.getText()!=null)
+		{
 			artist = SongArtist.getText();
+		}
+		else {
+			
+			error.setText("Please Enter a Song Name and Artist");
+			return false;
 		}
 		
 		if (SongAlbum.getText()==null)
@@ -107,7 +108,7 @@ public class AddController {
 	
 	public void confirm(ActionEvent Event) throws IOException
 	{
-		if (checkSong())
+		if (checkSong() == true)
 		{
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file

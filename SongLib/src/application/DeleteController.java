@@ -17,7 +17,7 @@ public class DeleteController {
 	private Button cancel;
 	
 	@FXML
-	private Button Confirm; 
+	private Button delete; 
 	
 	ObservableList<Song> listOfSongs;
 	Song song;
@@ -34,7 +34,7 @@ public class DeleteController {
 		window.show();
 		
 	}
-	public void delete (ActionEvent Event) throws IOException{
+	public void delete(ActionEvent Event) throws IOException{
 		listOfSongs.remove(song);
 		cancel(Event);
 	}

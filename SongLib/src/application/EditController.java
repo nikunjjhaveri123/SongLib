@@ -60,7 +60,7 @@ public class EditController {
 		String artist;
 		String album;
 		String year;
-		listOfSongs.remove(song);
+		
 		if(SongName.getText()==null)
 		{
 			error.setText("Please Enter a Song Name and Artist");
@@ -98,6 +98,7 @@ public class EditController {
 		}
 		
 		Song add = new Song(name, artist, album, year);
+		listOfSongs.remove(song);
 		if(add.equals(add, listOfSongs))
 		{
 			error.setText("Error: A song by this artist already exists: Please enter a new song with a different name or artist.");
@@ -132,6 +133,12 @@ public class EditController {
 	{
 		listOfSongs = songs;
 		this.song = song;
+
+		SongName.setText(song.name);
+		SongArtist.setText(song.artist);
+		SongAlbum.setText(song.album);
+		SongYear.setText(song.year);
+		
 	}
 
 }
