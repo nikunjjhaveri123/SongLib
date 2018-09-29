@@ -61,7 +61,7 @@ public class EditController {
 		String album;
 		String year;
 		
-		if(SongName.getText()==null)
+		if(SongName.getText().trim().isEmpty())
 		{
 			error.setText("Please Enter a Song Name and Artist");
 			return false;
@@ -70,7 +70,7 @@ public class EditController {
 			name = SongName.getText();
 		}
 		
-		if(SongArtist.getText()==null)
+		if(SongArtist.getText().trim().isEmpty())
 		{
 			error.setText("Please Enter a Song Name and Artist");
 			return false;
