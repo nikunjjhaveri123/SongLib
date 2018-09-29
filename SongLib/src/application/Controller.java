@@ -197,6 +197,7 @@ class Song {
 				if(comp < 0)
 				{
 					list.add(i, this);
+					return;
 				}
 				else if(comp == 0)
 				{
@@ -205,6 +206,7 @@ class Song {
 						if(artcomp < 0)
 						{
 							list.add(i, this);
+							return;
 						}
 					}
 				}

@@ -31,7 +31,7 @@
             <TextField fx:id="SongAlbum" promptText="Album Name" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <TextField fx:id="SongYear" promptText="Year" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button fx:id="confirm" mnemonicParsing="false" text="Confrim Song Change" GridPane.rowIndex="2" />
+            <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" text="Confrim Song Change" GridPane.rowIndex="2" />
             <Label fx:id="error" prefHeight="18.0" prefWidth="143.0" GridPane.columnIndex="2" />
             <Label prefHeight="82.0" prefWidth="242.0" text="Please Enter the Sone Name, Artist, Album and Year" />
          </children>
