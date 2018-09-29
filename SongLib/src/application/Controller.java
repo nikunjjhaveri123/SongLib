@@ -6,6 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -115,8 +119,14 @@ public class Controller {
 	}
 	
 	
-	public void addSong(ActionEvent Event)
+	public void addSong(ActionEvent Event) throws IOException
 	{
+		Parent AddView = FXMLLoader.load(getClass().getResource("AddView.fxml"));
+		Scene AddViewscene = new Scene(AddView);
+		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
+		window.setScene(AddViewscene);
+		window.show();
+		
 		
 	}
 	public void editSong(ActionEvent Event)
