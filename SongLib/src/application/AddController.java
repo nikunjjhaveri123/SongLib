@@ -40,7 +40,7 @@ public class AddController {
 	ObservableList<Song> listOfSongs;
 	
 	public void cancel(ActionEvent Event) throws IOException
-	{
+	{ 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
 		Parent SongView = loader.load();
