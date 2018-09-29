@@ -124,10 +124,17 @@ public class Controller {
 	}
 	
 	//This method removes the selected song from the observablelist listOfSongs
-	public void deleteSong(ActionEvent Event)
+	public void deleteSong(ActionEvent Event) throws IOException
 	{
-		listOfSongs.remove(listview.getSelectionModel().getSelectedItem());
-		listview.setItems(listOfSongs);
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("DeleteView.fxml")); // dir of your .fxml file
+		Parent DeleteView = loader.load();
+		Scene DeleteViewscene = new Scene(DeleteView);
+		DeleteController controller = loader.getController();
+		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
+		controller.initSongList(listOfSongs, listview.getSelectionModel().getSelectedItem());
+		window.setScene(DeleteViewscene);
+		window.show();
 	}
 	
 	
