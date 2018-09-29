@@ -75,6 +75,12 @@ public class Song {
 		public String toString() 
 		{
 			String x = name + " by " + artist;
+			return x;
+			
+		}
+		public String SongDetails()
+		{
+			String x = name + " by " + artist;
 			if(!(this.album.equals("&"))) {
 				x = x + " from album: " + album;
 			}
@@ -82,7 +88,6 @@ public class Song {
 				x = x + " created in year " + year;
 			}
 			return x;
-			
 		}
 
 }

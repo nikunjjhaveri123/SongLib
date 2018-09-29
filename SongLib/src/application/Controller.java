@@ -61,7 +61,7 @@ public class Controller {
 		listview.getSelectionModel().select(0);
 		details.setText(listview.getSelectionModel().getSelectedItem().toString());
 		
-		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().toString()));
+		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		
 	}
 	
@@ -72,7 +72,7 @@ public class Controller {
 		listview.getSelectionModel().select(0);
 		details.setText(listview.getSelectionModel().getSelectedItem().toString());
 		
-		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().toString()));
+		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		
 		
 	}
