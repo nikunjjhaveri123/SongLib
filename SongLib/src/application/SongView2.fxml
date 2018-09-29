@@ -4,25 +4,22 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.TextFlow?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <ScrollPane layoutX="209.0" layoutY="39.0" prefHeight="234.0" prefWidth="358.0">
          <content>
             <ListView fx:id="listview" prefHeight="233.0" prefWidth="354.0" />
          </content></ScrollPane>
-      <AnchorPane layoutY="271.0" prefHeight="0.0" prefWidth="600.0">
+      <AnchorPane layoutX="21.0" layoutY="306.0" prefHeight="34.0" prefWidth="561.0">
          <children>
-            <TextFlow prefHeight="128.0" prefWidth="549.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
-               <children>
-                  <Label prefHeight="30.0" prefWidth="87.0" text="Song Details" />
-                  <Label fx:id="details" prefHeight="32.0" prefWidth="460.0" />
-               </children></TextFlow>
+            <Label prefHeight="30.0" prefWidth="87.0" text="Song Details" />
+            <Label fx:id="details" layoutX="74.0" layoutY="2.0" prefHeight="32.0" prefWidth="460.0" />
          </children>
       </AnchorPane>
       <GridPane alignment="CENTER" layoutX="45.0" layoutY="43.0" prefHeight="188.0" prefWidth="99.0">
@@ -40,5 +37,6 @@
             <Button fx:id="Delete" mnemonicParsing="false" onAction="#deleteSong" prefHeight="38.0" prefWidth="107.0" text="Delete" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+      <TextField layoutX="21.0" layoutY="353.0" prefHeight="25.0" prefWidth="561.0" />
    </children>
 </AnchorPane>
