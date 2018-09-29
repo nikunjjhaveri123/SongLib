@@ -58,23 +58,22 @@ public class AddController {
 		String artist;
 		String album;
 		String year;
-		if(SongName.getText()!=null)
-		{	
+		if(SongName.getText().equals(null))
+		{
+			error.setText("Please Enter a Song Name and Artist");
+			return false;
+		}
+		else {
 			name = SongName.getText();
 		}
-		else {
-			error.setText("Please Enter a Song Name and Artist");
-			return false;
-		}
 		
-		if(SongArtist.getText()!=null)
+		if(SongArtist.getText().equals(null))
 		{
-			artist = SongArtist.getText();
-		}
-		else {
-			
 			error.setText("Please Enter a Song Name and Artist");
 			return false;
+		}
+		else {
+			artist = SongArtist.getText();
 		}
 		
 		if (SongAlbum.getText()==null)
