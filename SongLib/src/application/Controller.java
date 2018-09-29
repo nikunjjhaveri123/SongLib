@@ -152,9 +152,17 @@ public class Controller {
 		
 		
 	}
-	public void editSong(ActionEvent Event)
+	public void editSong(ActionEvent Event) throws IOException
 	{
-		Song temp = (Song) listview.getSelectionModel().getSelectedItem();
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("EditView.fxml")); // dir of your .fxml file
+		Parent EditView = loader.load();
+		Scene EditViewscene = new Scene(EditView);
+		EditController controller = loader.getController();
+		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
+		controller.initSongList(listOfSongs, listview.getSelectionModel().getSelectedItem());
+		window.setScene(EditViewscene);
+		window.show();
 	}
 }
 
