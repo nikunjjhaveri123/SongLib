@@ -18,7 +18,7 @@ public class AddController {
 	private Button cancel;
 	
 	@FXML
-	private Button Confirm;
+	private Button Confirm; 
 	
 	ObservableList<Song> listOfSongs;
 	
