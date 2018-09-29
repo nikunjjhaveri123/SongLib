@@ -117,12 +117,11 @@ public class Controller {
 	
 	public void addSong(ActionEvent Event)
 	{
-		Song temp = (Song) listview.getSelectionModel().getSelectedItem();
 		
 	}
 	public void editSong(ActionEvent Event)
 	{
-		
+		Song temp = (Song) listview.getSelectionModel().getSelectedItem();
 	}
 }
 

@@ -24,10 +24,11 @@ public class SongLib extends Application {
 			Controller controller = loader.getController();
 			controller.setMainStage(mainStage);
 			controller.start(mainStage);
-			Scene scene = new Scene(pane, 600, 700);
+			Scene scene = new Scene(pane, 600, 400);
 			
 			mainStage.setScene(scene);
 			mainStage.show();
+			
 			
 		} catch (IOException e) {
 			e.printStackTrace();
