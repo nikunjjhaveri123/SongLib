@@ -109,15 +109,7 @@ public class AddController {
 	{
 		if (checkSong() == true)
 		{
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
-			Parent SongView = loader.load();
-			Scene SongViewscene = new Scene(SongView);
-			Controller controller = loader.getController();
-			Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-			controller.restart(window, listOfSongs);
-			window.setScene(SongViewscene);
-			window.show();
+			cancel(Event);
 		}
 		else
 		{
