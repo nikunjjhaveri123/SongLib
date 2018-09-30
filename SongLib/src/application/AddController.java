@@ -49,7 +49,7 @@ public class AddController {
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
 		controller.restart(window, listOfSongs, index);
-		controller.filewrite();
+		controller.filewrite(listOfSongs);
 		window.setScene(SongViewscene);
 		window.show();
 	}

@@ -1,5 +1,5 @@
 package application;
-
+  
 import java.io.IOException;
 
 import javafx.collections.ObservableList;
@@ -51,7 +51,7 @@ public class EditController {
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
 		controller.restart(window, listOfSongs, index);
-		controller.filewrite();
+		controller.filewrite(listOfSongs);
 		window.setScene(SongViewscene);
 		window.show();
 	}

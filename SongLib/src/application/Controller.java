@@ -10,14 +10,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -61,9 +56,9 @@ public class Controller {
 		if(!listOfSongs.isEmpty()) {
 			listview.getSelectionModel().select(0);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
-			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		}
-		
+		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
+
 		
 	}
 	
@@ -74,8 +69,9 @@ public class Controller {
 		if (!songs.isEmpty()) {
 			listview.getSelectionModel().select(index);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
-			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
-		}
+		}	
+		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
+
 	}
 	
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview
@@ -113,7 +109,7 @@ public class Controller {
 		return listOfSongs;
 	}
 	
-	public void filewrite() throws IOException
+	public void filewrite(ObservableList<Song> listOfSongs) throws IOException
 	{
 		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 		for (Song s : listOfSongs)

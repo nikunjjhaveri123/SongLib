@@ -1,9 +1,0 @@
-<<<<<<< HEAD
-song/lol///
-ww/hhhh/album22/1990/
-=======
-aksdfjdsalk/dsakflasdj/sdkfasj//
-sdafasd/asdfsad/asdfdsf//
-song/lol///
-song/xd/type//
->>>>>>> branch 'master' of https://github.com/nikunjjhaveri123/SongLib

@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class DeleteController {
+	
 	@FXML
 	private Button cancel;
 	
@@ -22,6 +23,7 @@ public class DeleteController {
 	ObservableList<Song> listOfSongs;
 	int index;
 	Song song;
+	
 	public void cancel(ActionEvent Event) throws IOException
 	{
 		FXMLLoader loader = new FXMLLoader();
@@ -34,6 +36,7 @@ public class DeleteController {
 		{
 			index = listOfSongs.size()-1;
 		}
+		controller.filewrite(listOfSongs);
 		controller.restart(window, listOfSongs, index);
 		window.setScene(SongViewscene);
 		window.show();
