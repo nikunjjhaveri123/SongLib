@@ -90,16 +90,17 @@ public class Controller {
 			String delim = "/";
 			while((line = br.readLine())!= null)
 			{
+				
 				System.out.println(line);
 				String name = "";
 				String artist = "";
-				String year = "";
 				String album = "";
-				StringTokenizer str = new StringTokenizer(line, delim, false);
-				name = str.nextToken();
-				artist = str.nextToken();
-				album = str.nextToken();
-				year = str.nextToken();
+				String year = "";
+				String[] lineTokens = line.split(delim,-1);
+				name = lineTokens[0];
+				artist = lineTokens[1];
+				album = lineTokens[2];
+				year = lineTokens[3];
 				listOfSongs.add(new Song(name, artist, album, year));
 			}
 			fr.close();
@@ -115,7 +116,7 @@ public class Controller {
 	
 	public void filewrite() throws IOException
 	{
-		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,true));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 		for (Song s : listOfSongs)
 		{
 			writer.write(s.name + "/" + s.artist + "/" + s.album + "/" + s.year + "/");

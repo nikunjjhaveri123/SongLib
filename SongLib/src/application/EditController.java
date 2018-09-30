@@ -51,6 +51,7 @@ public class EditController {
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
 		controller.restart(window, listOfSongs, index);
+		controller.filewrite();
 		window.setScene(SongViewscene);
 		window.show();
 	}
