@@ -108,6 +108,7 @@ public class AddController {
 		
 	}
 	
+	//
 	public void confirm(ActionEvent Event) throws IOException
 	{
 		if (checkSong() == true)
