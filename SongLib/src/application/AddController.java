@@ -37,7 +37,8 @@ public class AddController {
 	@FXML
 	private Label error;
 	
-	ObservableList<Song> listOfSongs;
+	private ObservableList<Song> listOfSongs;
+	private int index;
 	
 	public void cancel(ActionEvent Event) throws IOException
 	{ 
@@ -47,7 +48,7 @@ public class AddController {
 		Scene SongViewscene = new Scene(SongView);
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-		controller.restart(window, listOfSongs);
+		controller.restart(window, listOfSongs, index);
 		window.setScene(SongViewscene);
 		window.show();
 	}
@@ -101,6 +102,7 @@ public class AddController {
 			return false;
 		}
 		add.insertSong(listOfSongs);
+		this.index = listOfSongs.indexOf(add);
 		return true;
 		
 	}
@@ -117,9 +119,10 @@ public class AddController {
 		}
 	}
 	
-	public void initSongList(ObservableList<Song> songs)
+	public void initSongList(ObservableList<Song> songs, Song s)
 	{
-		listOfSongs = songs;
+		this.listOfSongs = songs;
+		this.index = songs.indexOf(s);
 	}
 	
 	

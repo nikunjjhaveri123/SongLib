@@ -33,6 +33,9 @@ public class Song {
 		// need to add something to check for when using edit feature because year and album might be edited but name and artist could remain the same.
 		public boolean equals(Song one, ObservableList<Song> listOfSongs)
 		{
+			if(listOfSongs.isEmpty()) {
+				return false;
+			}
 			for(Song s: listOfSongs)
 			{
 				if(one.name.equals(s.name) && one.artist.equals(s.artist))
@@ -45,6 +48,10 @@ public class Song {
 		
 		public void insertSong(ObservableList<Song> list)
 		{
+			if(list.size() == 0) {
+				list.add(this);
+				return;
+			}
 			for(int i = 0;i < list.size(); i++)
 			{
 				int comp = (this.name.toLowerCase()).compareTo(list.get(i).name.toLowerCase());

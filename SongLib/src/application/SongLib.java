@@ -10,12 +10,11 @@ import application.Controller;
 
 public class SongLib extends Application {
 
-	Stage mainStage;
+	private Stage mainStage;
 	
 	public void start(Stage stage) {
 		mainStage = stage;
 		mainStage.setTitle("Song library");  // title of window
-		
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
@@ -24,7 +23,7 @@ public class SongLib extends Application {
 			Controller controller = loader.getController();
 			controller.setMainStage(mainStage);
 			controller.start(mainStage);
-			Scene scene = new Scene(pane, 600, 400);
+			Scene scene = new Scene(pane);
 			
 			mainStage.setScene(scene);
 			mainStage.show();

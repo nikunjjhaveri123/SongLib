@@ -20,6 +20,7 @@ public class DeleteController {
 	private Button delete; 
 	
 	ObservableList<Song> listOfSongs;
+	int index;
 	Song song;
 	public void cancel(ActionEvent Event) throws IOException
 	{
@@ -29,7 +30,7 @@ public class DeleteController {
 		Scene SongViewscene = new Scene(SongView);
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-		controller.restart(window, listOfSongs);
+		controller.restart(window, listOfSongs, index);
 		window.setScene(SongViewscene);
 		window.show();
 		
@@ -42,6 +43,7 @@ public class DeleteController {
 	{
 		listOfSongs = songs;
 		this.song = song;
+		this.index = songs.indexOf(song);
 	}
 
 }

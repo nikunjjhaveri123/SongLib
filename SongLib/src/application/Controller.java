@@ -58,21 +58,28 @@ public class Controller {
 			System.out.println(s);
 		}
 		listview.setItems(listOfSongs); 
-		listview.getSelectionModel().select(0);
+		if(listOfSongs.get(0) != null) {
+			listview.getSelectionModel().select(0);
+		}
 		details.setText(listview.getSelectionModel().getSelectedItem().toString());
 		
 		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		
 	}
 	
-	public void restart(Stage mainStage, ObservableList<Song> songs)
+	public void restart(Stage mainStage, ObservableList<Song> songs, int index)
 	{
 		listOfSongs = songs;
 		listview.setItems(listOfSongs); 
-		listview.getSelectionModel().select(0);
-		details.setText(listview.getSelectionModel().getSelectedItem().toString());
+		if (!songs.isEmpty()) {
+			listview.getSelectionModel().select(index);
+			details.setText(listview.getSelectionModel().getSelectedItem().toString());
+			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
+
+		}
 		
-		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
+
+		
 		
 		
 	}
@@ -146,7 +153,7 @@ public class Controller {
 		Scene AddViewscene = new Scene(AddView);
 		AddController controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-		controller.initSongList(listOfSongs);
+		controller.initSongList(listOfSongs, listview.getSelectionModel().getSelectedItem());
 		window.setScene(AddViewscene);
 		window.show();
 		
