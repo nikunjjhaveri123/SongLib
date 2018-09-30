@@ -53,17 +53,17 @@ public class Controller {
 	// starts the program by reading the file and setting up the listview to show the list of Songs
 	public void start(Stage mainStage) {
 		listOfSongs = fileRead(fileName);
-		for(Song s: listOfSongs)
-		{
-			System.out.println(s);
-		}
+//		for(Song s: listOfSongs)
+//		{
+//			System.out.println(s);
+//		}
 		listview.setItems(listOfSongs); 
-		if(listOfSongs.get(0) != null) {
+		if(!listOfSongs.isEmpty()) {
 			listview.getSelectionModel().select(0);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
+			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		}
 		
-		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		
 	}
 	
@@ -75,13 +75,7 @@ public class Controller {
 			listview.getSelectionModel().select(index);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
 			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
-
 		}
-		
-
-		
-		
-		
 	}
 	
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview
@@ -95,16 +89,17 @@ public class Controller {
 			String delim = "/";
 			while((line = br.readLine())!= null)
 			{
+				
 				System.out.println(line);
 				String name = "";
 				String artist = "";
-				String year = "";
 				String album = "";
-				StringTokenizer str = new StringTokenizer(line, delim, false);
-				name = str.nextToken();
-				artist = str.nextToken();
-				album = str.nextToken();
-				year = str.nextToken();
+				String year = "";
+				String[] lineTokens = line.split(delim,-1);
+				name = lineTokens[0];
+				artist = lineTokens[1];
+				album = lineTokens[2];
+				year = lineTokens[3];
 				listOfSongs.add(new Song(name, artist, album, year));
 			}
 			fr.close();
@@ -120,7 +115,7 @@ public class Controller {
 	
 	public void filewrite() throws IOException
 	{
-		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,true));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
 		for (Song s : listOfSongs)
 		{
 			writer.write(s.name + "/" + s.artist + "/" + s.album + "/" + s.year + "/");

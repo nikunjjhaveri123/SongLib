@@ -37,11 +37,10 @@ public class EditController {
 	@FXML
 	private Label error;
 	
-	ObservableList<Song> listOfSongs;
+	private ObservableList<Song> listOfSongs;
 	
-	Song song;
-	
-	int index;
+	private Song song;
+	private int index;
 	
 	public void cancel(ActionEvent Event) throws IOException
 	{
@@ -52,6 +51,7 @@ public class EditController {
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
 		controller.restart(window, listOfSongs, index);
+		controller.filewrite();
 		window.setScene(SongViewscene);
 		window.show();
 	}
@@ -128,8 +128,7 @@ public class EditController {
 	{
 		listOfSongs = songs;
 		this.song = song;
-		
-
+		this.index = songs.indexOf(song);
 		SongName.setText(song.name);
 		SongArtist.setText(song.artist);
 		SongAlbum.setText(song.album);
