@@ -35,19 +35,12 @@ public class DeleteController {
 			index = listOfSongs.size()-1;
 		}
 		controller.restart(window, listOfSongs, index);
-		controller.filewrite();
 		window.setScene(SongViewscene);
 		window.show();
-		
+		 
 	}
 	public void delete(ActionEvent Event) throws IOException{
 		listOfSongs.remove(song);
-		try {
-			listOfSongs.get(this.index);
-		}
-		catch(IndexOutOfBoundsException e) {
-			this.index--;
-		}
 		cancel(Event);
 	}
 	public void initSongList(ObservableList<Song> songs, Song song)
