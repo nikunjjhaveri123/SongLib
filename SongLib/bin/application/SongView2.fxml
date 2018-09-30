@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -8,19 +7,11 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
       <ListView fx:id="listview" layoutX="197.0" layoutY="35.0" prefHeight="233.0" prefWidth="360.0" />
-      <AnchorPane layoutY="306.0" prefHeight="34.0" prefWidth="600.0">
-         <children>
-            <Label layoutX="-20.0" layoutY="2.0" prefHeight="34.0" prefWidth="581.0" text="Song Details:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-            <Label fx:id="details" layoutX="94.0" layoutY="20.0" prefHeight="37.0" prefWidth="506.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="84.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </AnchorPane>
       <GridPane alignment="CENTER" layoutX="45.0" layoutY="43.0" prefHeight="188.0" prefWidth="99.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,10 +22,29 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="Edit" mnemonicParsing="false" onAction="#editSong" prefHeight="38.0" prefWidth="107.0" text="Edit" />
-            <Button fx:id="Add" mnemonicParsing="false" onAction="#addSong" prefHeight="38.0" prefWidth="107.0" text="Add" GridPane.rowIndex="1" />
-            <Button fx:id="Delete" mnemonicParsing="false" onAction="#deleteSong" prefHeight="38.0" prefWidth="107.0" text="Delete" GridPane.rowIndex="2" />
+            <Button fx:id="Edit" mnemonicParsing="false" onAction="#editSong" prefHeight="38.0" prefWidth="107.0" text="Edit">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="Add" mnemonicParsing="false" onAction="#addSong" prefHeight="38.0" prefWidth="107.0" text="Add" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <Button fx:id="Delete" mnemonicParsing="false" onAction="#deleteSong" prefHeight="38.0" prefWidth="107.0" text="Delete" GridPane.rowIndex="2">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
       </GridPane>
+      <Label layoutX="14.0" layoutY="269.0" prefHeight="63.0" prefWidth="134.0" text="Song Details:" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="452.0" AnchorPane.topAnchor="269.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="details" layoutX="25.0" layoutY="312.0" prefHeight="47.0" prefWidth="519.0" AnchorPane.bottomAnchor="41.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="312.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
