@@ -37,9 +37,10 @@ public class EditController {
 	@FXML
 	private Label error;
 	
-	ObservableList<Song> listOfSongs;
+	private ObservableList<Song> listOfSongs;
 	
-	Song song;
+	private Song song;
+	private int index;
 	
 	public void cancel(ActionEvent Event) throws IOException
 	{
@@ -49,7 +50,7 @@ public class EditController {
 		Scene SongViewscene = new Scene(SongView);
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-		controller.restart(window, listOfSongs);
+		controller.restart(window, listOfSongs, index);
 		window.setScene(SongViewscene);
 		window.show();
 	}
@@ -105,6 +106,7 @@ public class EditController {
 			return false;
 		}
 		add.insertSong(listOfSongs);
+		index = listOfSongs.indexOf(add);
 		return true;
 		
 	}
@@ -119,7 +121,7 @@ public class EditController {
 			Scene SongViewscene = new Scene(SongView);
 			Controller controller = loader.getController();
 			Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-			controller.restart(window, listOfSongs);
+			controller.restart(window, listOfSongs, index);
 			window.setScene(SongViewscene);
 			window.show();
 		}
@@ -133,6 +135,7 @@ public class EditController {
 	{
 		listOfSongs = songs;
 		this.song = song;
+		this.index = songs.indexOf(song);
 
 		SongName.setText(song.name);
 		SongArtist.setText(song.artist);

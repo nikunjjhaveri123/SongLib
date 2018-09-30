@@ -53,17 +53,18 @@ public class Controller {
 	// starts the program by reading the file and setting up the listview to show the list of Songs
 	public void start(Stage mainStage) {
 		listOfSongs = fileRead(fileName);
-		for(Song s: listOfSongs)
-		{
-			System.out.println(s);
-		}
+//		for(Song s: listOfSongs)
+//		{
+//			System.out.println(s);
+//		}
 		listview.setItems(listOfSongs); 
-		if(listOfSongs.get(0) != null) {
+		if(!listOfSongs.isEmpty()) {
 			listview.getSelectionModel().select(0);
+			details.setText(listview.getSelectionModel().getSelectedItem().toString());
+			
+			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		}
-		details.setText(listview.getSelectionModel().getSelectedItem().toString());
 		
-		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		
 	}
 	
@@ -74,14 +75,8 @@ public class Controller {
 		if (!songs.isEmpty()) {
 			listview.getSelectionModel().select(index);
 			details.setText(listview.getSelectionModel().getSelectedItem().toString());
-			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
-
 		}
-		
-
-		
-		
-		
+		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 	}
 	
 	//Reads a file and returns and ObservableList of Songs that can be used in the listview

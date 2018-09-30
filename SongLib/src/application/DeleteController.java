@@ -37,6 +37,12 @@ public class DeleteController {
 	}
 	public void delete(ActionEvent Event) throws IOException{
 		listOfSongs.remove(song);
+		try {
+			listOfSongs.get(this.index);
+		}
+		catch(IndexOutOfBoundsException e) {
+			this.index--;
+		}
 		cancel(Event);
 	}
 	public void initSongList(ObservableList<Song> songs, Song song)
