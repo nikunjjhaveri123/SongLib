@@ -60,8 +60,8 @@ public class Controller {
 		listview.setItems(listOfSongs); 
 		if(listOfSongs.get(0) != null) {
 			listview.getSelectionModel().select(0);
+			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
 		}
-		details.setText(listview.getSelectionModel().getSelectedItem().toString());
 		
 		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		
@@ -73,7 +73,7 @@ public class Controller {
 		listview.setItems(listOfSongs); 
 		if (!songs.isEmpty()) {
 			listview.getSelectionModel().select(index);
-			details.setText(listview.getSelectionModel().getSelectedItem().toString());
+			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
 			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 
 		}

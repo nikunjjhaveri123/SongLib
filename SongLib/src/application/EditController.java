@@ -41,6 +41,8 @@ public class EditController {
 	
 	Song song;
 	
+	int index;
+	
 	public void cancel(ActionEvent Event) throws IOException
 	{
 		FXMLLoader loader = new FXMLLoader();
@@ -49,7 +51,7 @@ public class EditController {
 		Scene SongViewscene = new Scene(SongView);
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-		controller.restart(window, listOfSongs);
+		controller.restart(window, listOfSongs, index);
 		window.setScene(SongViewscene);
 		window.show();
 	}
@@ -105,6 +107,7 @@ public class EditController {
 			return false;
 		}
 		add.insertSong(listOfSongs);
+		index = listOfSongs.indexOf(add);
 		return true;
 		
 	}
@@ -113,15 +116,7 @@ public class EditController {
 	{
 		if (checkSong())
 		{
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
-			Parent SongView = loader.load();
-			Scene SongViewscene = new Scene(SongView);
-			Controller controller = loader.getController();
-			Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
-			controller.restart(window, listOfSongs);
-			window.setScene(SongViewscene);
-			window.show();
+			cancel(Event);
 		}
 		else
 		{
@@ -133,6 +128,7 @@ public class EditController {
 	{
 		listOfSongs = songs;
 		this.song = song;
+		
 
 		SongName.setText(song.name);
 		SongArtist.setText(song.artist);

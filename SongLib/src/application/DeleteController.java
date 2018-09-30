@@ -30,6 +30,10 @@ public class DeleteController {
 		Scene SongViewscene = new Scene(SongView);
 		Controller controller = loader.getController();
 		Stage window = (Stage) ((Node)Event.getSource()).getScene().getWindow();
+		if(index >= listOfSongs.size())
+		{
+			index = listOfSongs.size()-1;
+		}
 		controller.restart(window, listOfSongs, index);
 		window.setScene(SongViewscene);
 		window.show();
