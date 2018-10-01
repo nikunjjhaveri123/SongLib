@@ -101,10 +101,13 @@ public class EditController {
 		
 		Song add = new Song(name, artist, album, year);
 		listOfSongs.remove(song);
-		if(add.equals(add, listOfSongs))
+		if(!listOfSongs.isEmpty())
 		{
-			error.setText("Error: A song by this artist already exists: Please enter a new song with a different name or artist.");
-			return false;
+			if (add.equals(add, listOfSongs))
+			{
+				error.setText("Error: A song by this artist already exists: Please enter a new song with a different name or artist.");
+				return false;
+			}
 		}
 		add.insertSong(listOfSongs);
 		index = listOfSongs.indexOf(add);
