@@ -48,7 +48,7 @@ public class Song {
 		
 		public void insertSong(ObservableList<Song> list)
 		{
-			if(list.size() == 0) {
+			if(list.isEmpty()) {
 				list.add(this);
 				return;
 			}
@@ -60,7 +60,7 @@ public class Song {
 					{
 						list.add(i, this);
 						return;
-					}
+					}  
 					else if(comp == 0)
 					{
 						int artcomp = this.artist.toLowerCase().compareTo(list.get(i).artist.toLowerCase());

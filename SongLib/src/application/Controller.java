@@ -52,8 +52,9 @@ public class Controller {
 //		{
 //			System.out.println(s);
 //		}
-		listview.setItems(listOfSongs); 
+		 
 		if(!listOfSongs.isEmpty()) {
+			listview.setItems(listOfSongs);
 			listview.getSelectionModel().select(0);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
 		}
@@ -65,8 +66,9 @@ public class Controller {
 	public void restart(Stage mainStage, ObservableList<Song> songs, int index)
 	{
 		listOfSongs = songs;
-		listview.setItems(listOfSongs); 
+		
 		if (!songs.isEmpty()) {
+			listview.setItems(listOfSongs); 
 			listview.getSelectionModel().select(index);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
 		}	
