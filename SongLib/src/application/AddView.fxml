@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -8,33 +9,46 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="339.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddController">
    <children>
-      <AnchorPane prefHeight="361.0" prefWidth="576.0" />
-      <ScrollPane prefHeight="339.0" prefWidth="524.0" />
-      <GridPane prefHeight="362.0" prefWidth="576.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <TextField fx:id="SongName" prefHeight="26.0" prefWidth="126.0" promptText="Song Name" GridPane.rowIndex="1" />
-            <TextField fx:id="SongArtist" promptText="Artist's Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="SongAlbum" promptText="Album Name" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <TextField fx:id="SongYear" promptText="Year" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button fx:id="confirm" mnemonicParsing="false" onAction="#confirm" text="Confrim Song Change" GridPane.rowIndex="2" />
-            <Label fx:id="error" prefHeight="18.0" prefWidth="143.0" GridPane.columnIndex="2" />
-            <Label prefHeight="82.0" prefWidth="242.0" text="Please Enter the Sone Name, Artist, Album and Year" />
-         </children>
-      </GridPane>
+      <ScrollPane prefHeight="362.0" prefWidth="640.0">
+         <content>
+            <GridPane prefHeight="357.0" prefWidth="635.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="333.60003662109375" minWidth="10.0" prefWidth="152.80006408691406" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="347.19993591308594" minWidth="10.0" prefWidth="165.20001220703128" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="258.4000244140625" minWidth="10.0" prefWidth="154.79998779296875" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="164.79998779296875" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TextField fx:id="SongName" prefHeight="26.0" prefWidth="45.0" promptText="Song Name" GridPane.rowIndex="1" />
+                  <TextField fx:id="SongArtist" promptText="Artist's Name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="SongAlbum" promptText="Album Name" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="SongYear" promptText="Year" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="cancel" mnemonicParsing="false" onAction="#cancel" prefHeight="26.0" prefWidth="148.0" text="Cancel" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button fx:id="confirm" minHeight="-Infinity" mnemonicParsing="false" onAction="#confirm" prefHeight="26.0" prefWidth="142.0" snapToPixel="false" text="Confrim Song Change" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Label fx:id="error" alignment="CENTER" prefHeight="121.0" prefWidth="318.0" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="82.0" prefWidth="644.0" text="Please Enter the Sone Name, Artist, Album and Year" GridPane.columnSpan="4">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </content></ScrollPane>
    </children>
 </AnchorPane>
