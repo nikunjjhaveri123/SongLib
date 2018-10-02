@@ -101,15 +101,16 @@ public class EditController {
 		}
 		
 		Song add = new Song(name, artist, album, year);
-		listOfSongs.remove(song);
+		
 		if(!listOfSongs.isEmpty())
 		{
-			if (add.equals(add, listOfSongs))
+			if (add.equals(add, listOfSongs) && !add.equals(song))
 			{
 				error.setText("Error: A song by this artist already exists: Please enter a new song with a different name or artist.");
 				return false;
 			}
 		}
+		listOfSongs.remove(song);
 		add.insertSong(listOfSongs);
 		index = listOfSongs.indexOf(add);
 		return true;

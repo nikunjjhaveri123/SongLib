@@ -46,6 +46,12 @@ public class Song {
 			}
 			return false;
 		}
+		public boolean equals(Song s) {
+			if(this.name.equals(s.name) && this.artist.equals(s.artist)) {
+				return true;
+			}
+			return false;
+		}
 		
 		public void insertSong(ObservableList<Song> list)
 		{
@@ -89,10 +95,10 @@ public class Song {
 		public String SongDetails()
 		{
 			String x = name + " by " + artist;
-			if(!(this.album.equals("&"))) {
+			if(!((this.album.trim()).equals(""))) {
 				x = x + " from album: " + album;
 			}
-			if(!(this.year.equals("&"))) {
+			if(!((this.year.trim()).equals(""))) {
 				x = x + " created in year " + year;
 			}
 			return x;
