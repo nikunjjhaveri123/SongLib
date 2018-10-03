@@ -110,8 +110,8 @@ public class EditController {
 				return false;
 			}
 		}
-		listOfSongs.remove(song);
 		add.insertSong(listOfSongs);
+		listOfSongs.remove(song);
 		index = listOfSongs.indexOf(add);
 		return true;
 		
