@@ -11,9 +11,9 @@
 <AnchorPane prefHeight="339.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.DeleteController">
    <children>
       <AnchorPane prefHeight="361.0" prefWidth="576.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" prefHeight="122.0" prefWidth="576.0" text="Are you sure you want to delete song?" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-2.0" prefHeight="122.0" prefWidth="576.0" text="Are you sure you want to delete the selected song?" textAlignment="CENTER">
          <font>
-            <Font size="29.0" />
+            <Font size="18.0" />
          </font>
       </Label>
       <GridPane prefHeight="362.0" prefWidth="576.0">
