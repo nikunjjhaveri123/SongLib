@@ -1,6 +1,6 @@
 //Nikunj Jhaveri and Louie Zhou
-package application;
-
+package view;
+  
 import java.io.IOException;
 
 import javafx.collections.ObservableList;
@@ -15,8 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class AddController {
-	 
+public class EditController {
+	
 	@FXML
 	private Button cancel;
 	
@@ -39,10 +39,12 @@ public class AddController {
 	private Label error;
 	
 	private ObservableList<Song> listOfSongs;
+	
+	private Song song;
 	private int index;
 	
 	public void cancel(ActionEvent Event) throws IOException
-	{ 
+	{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
 		Parent SongView = loader.load();
@@ -61,6 +63,7 @@ public class AddController {
 		String artist;
 		String album;
 		String year;
+		
 		if(SongName.getText().trim().isEmpty())
 		{
 			error.setText("Please Enter a Song Name and Artist");
@@ -98,6 +101,7 @@ public class AddController {
 		}
 		
 		Song add = new Song(name, artist, album, year);
+		listOfSongs.remove(song);
 		if(!listOfSongs.isEmpty())
 		{
 			if (add.equals(add, listOfSongs))
@@ -107,15 +111,14 @@ public class AddController {
 			}
 		}
 		add.insertSong(listOfSongs);
-		this.index = listOfSongs.indexOf(add);
+		index = listOfSongs.indexOf(add);
 		return true;
 		
 	}
 	
-	//
 	public void confirm(ActionEvent Event) throws IOException
 	{
-		if (checkSong() == true)
+		if (checkSong())
 		{
 			cancel(Event);
 		}
@@ -125,13 +128,16 @@ public class AddController {
 		}
 	}
 	
-	public void initSongList(ObservableList<Song> songs, Song s)
+	public void initSongList(ObservableList<Song> songs, Song song)
 	{
-		this.listOfSongs = songs;
-		this.index = songs.indexOf(s);
+		listOfSongs = songs;
+		this.song = song;
+		this.index = songs.indexOf(song);
+		SongName.setText(song.name);
+		SongArtist.setText(song.artist);
+		SongAlbum.setText(song.album);
+		SongYear.setText(song.year);
+		
 	}
-	 
-	
-	
 
 }

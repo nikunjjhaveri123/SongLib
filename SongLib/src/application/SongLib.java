@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import application.Controller;
+import view.Controller;
 
 public class SongLib extends Application {
 
@@ -18,7 +18,7 @@ public class SongLib extends Application {
 		mainStage.setTitle("Song library");  // title of window
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
+			loader.setLocation(getClass().getResource("/view/SongView2.fxml")); // dir of your .fxml file
 			AnchorPane pane = (AnchorPane)loader.load();
 			
 			Controller controller = loader.getController();
