@@ -40,6 +40,9 @@ public class Controller {
 	@FXML
 	private Label details;
 	
+	@FXML
+	private Label error;
+	
 	private final static String fileName = "src\\application\\SongList.txt";
 	
 	public void setMainStage(Stage stage) {
@@ -128,6 +131,11 @@ public class Controller {
 	//This method removes the selected song from the observablelist listOfSongs
 	public void deleteSong(ActionEvent Event) throws IOException
 	{
+		if(listOfSongs.isEmpty())
+		{
+			error.setText("There is no song to delete. Please add a song to the list.");
+			return;
+		}
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("DeleteView.fxml")); // dir of your .fxml file
 		Parent DeleteView = loader.load();

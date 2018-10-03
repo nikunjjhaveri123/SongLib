@@ -46,6 +46,7 @@ public class Song {
 			}
 			return false;
 		}
+		
 		public boolean equals(Song s) {
 			if(this.name.equals(s.name) && this.artist.equals(s.artist)) {
 				return true;

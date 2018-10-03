@@ -64,5 +64,10 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <Label fx:id="error" layoutX="6.0" layoutY="350.0" prefHeight="39.0" prefWidth="580.0" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
