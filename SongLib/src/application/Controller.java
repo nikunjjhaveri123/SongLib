@@ -40,7 +40,7 @@ public class Controller {
 	@FXML
 	private Label details;
 	
-	final static String fileName = "src\\application\\SongList.txt";
+	private final static String fileName = "src\\application\\SongList.txt";
 	
 	public void setMainStage(Stage stage) {
 		mainStage = stage;
@@ -58,8 +58,9 @@ public class Controller {
 			listview.setItems(listOfSongs);
 			listview.getSelectionModel().select(0);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
+			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
+
 		}
-		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 
 		
 	}
@@ -72,8 +73,8 @@ public class Controller {
 			listview.setItems(listOfSongs); 
 			listview.getSelectionModel().select(index);
 			details.setText(listview.getSelectionModel().getSelectedItem().SongDetails());
+			listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 		}	
-		listview.getSelectionModel().selectedIndexProperty().addListener((obs, oldVal, newVal) -> details.setText(listview.getSelectionModel().getSelectedItem().SongDetails()));
 
 	}
 	
