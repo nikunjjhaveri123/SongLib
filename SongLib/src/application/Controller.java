@@ -135,7 +135,7 @@ public class Controller {
 		{
 			error.setText("There is no song to delete. Please add a song to the list.");
 			return;
-		}
+		} 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("DeleteView.fxml")); // dir of your .fxml file
 		Parent DeleteView = loader.load();
