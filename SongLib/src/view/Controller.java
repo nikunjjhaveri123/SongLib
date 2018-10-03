@@ -1,5 +1,5 @@
 //Nikunj Jhaveri and Louie Zhou
-package application;
+package view;
 
 import java.util.*;
 import javafx.stage.Stage;

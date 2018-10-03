@@ -1,6 +1,6 @@
 //Nikunj Jhaveri and Louie Zhou
-package application;
-  
+package view;
+
 import java.io.IOException;
 
 import javafx.collections.ObservableList;
@@ -15,8 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class EditController {
-	
+public class AddController {
+	 
 	@FXML
 	private Button cancel;
 	
@@ -39,12 +39,10 @@ public class EditController {
 	private Label error;
 	
 	private ObservableList<Song> listOfSongs;
-	
-	private Song song;
 	private int index;
 	
 	public void cancel(ActionEvent Event) throws IOException
-	{
+	{ 
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("SongView2.fxml")); // dir of your .fxml file
 		Parent SongView = loader.load();
@@ -63,7 +61,6 @@ public class EditController {
 		String artist;
 		String album;
 		String year;
-		
 		if(SongName.getText().trim().isEmpty())
 		{
 			error.setText("Please Enter a Song Name and Artist");
@@ -101,25 +98,24 @@ public class EditController {
 		}
 		
 		Song add = new Song(name, artist, album, year);
-		
 		if(!listOfSongs.isEmpty())
 		{
-			if (add.equals(add, listOfSongs) && !add.equals(song))
+			if (add.equals(add, listOfSongs))
 			{
 				error.setText("Error: A song by this artist already exists: Please enter a new song with a different name or artist.");
 				return false;
 			}
 		}
 		add.insertSong(listOfSongs);
-		listOfSongs.remove(song);
-		index = listOfSongs.indexOf(add);
+		this.index = listOfSongs.indexOf(add);
 		return true;
 		
 	}
 	
+	//
 	public void confirm(ActionEvent Event) throws IOException
 	{
-		if (checkSong())
+		if (checkSong() == true)
 		{
 			cancel(Event);
 		}
@@ -129,16 +125,13 @@ public class EditController {
 		}
 	}
 	
-	public void initSongList(ObservableList<Song> songs, Song song)
+	public void initSongList(ObservableList<Song> songs, Song s)
 	{
-		listOfSongs = songs;
-		this.song = song;
-		this.index = songs.indexOf(song);
-		SongName.setText(song.name);
-		SongArtist.setText(song.artist);
-		SongAlbum.setText(song.album);
-		SongYear.setText(song.year);
-		
+		this.listOfSongs = songs;
+		this.index = songs.indexOf(s);
 	}
+	 
+	
+	
 
 }

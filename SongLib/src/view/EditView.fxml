@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="356.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.EditController">
+<AnchorPane prefHeight="356.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditController">
    <children>
       <Label fx:id="error" layoutX="134.0" layoutY="256.0" prefHeight="114.0" prefWidth="337.0" wrapText="true">
          <font>
