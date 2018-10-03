@@ -1,5 +1,5 @@
 //Nikunj Jhaveri and Louie Zhou
-package view;
+package application;
 
 import java.io.IOException;
 
